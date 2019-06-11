@@ -1,0 +1,82 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/fabrizio-franco/CLionProjects/Proyecto Final/prueba/Dado.h
+SFML/Graphics.hpp
+-
+
+/home/fabrizio-franco/CLionProjects/Proyecto Final/prueba/Ficha.h
+string
+-
+SFML/Graphics.hpp
+-
+
+/home/fabrizio-franco/CLionProjects/Proyecto Final/prueba/Juego.h
+SFML/Graphics.hpp
+-
+SFML/Audio.hpp
+-
+Dado.h
+/home/fabrizio-franco/CLionProjects/Proyecto Final/prueba/Dado.h
+Tablero.h
+/home/fabrizio-franco/CLionProjects/Proyecto Final/prueba/Tablero.h
+Jugador.h
+/home/fabrizio-franco/CLionProjects/Proyecto Final/prueba/Jugador.h
+
+/home/fabrizio-franco/CLionProjects/Proyecto Final/prueba/Jugador.h
+Ficha.h
+/home/fabrizio-franco/CLionProjects/Proyecto Final/prueba/Ficha.h
+string
+-
+iostream
+-
+vector
+-
+algorithm
+-
+tuple
+-
+Recorrido.h
+/home/fabrizio-franco/CLionProjects/Proyecto Final/prueba/Recorrido.h
+SFML/Graphics.hpp
+-
+
+/home/fabrizio-franco/CLionProjects/Proyecto Final/prueba/Ludo.cpp
+Ludo.h
+/home/fabrizio-franco/CLionProjects/Proyecto Final/prueba/Ludo.h
+
+/home/fabrizio-franco/CLionProjects/Proyecto Final/prueba/Ludo.h
+SFML/Graphics.hpp
+-
+SFML/Audio.hpp
+-
+config.h
+/home/fabrizio-franco/CLionProjects/Proyecto Final/prueba/config.h
+Juego.h
+/home/fabrizio-franco/CLionProjects/Proyecto Final/prueba/Juego.h
+
+/home/fabrizio-franco/CLionProjects/Proyecto Final/prueba/Recorrido.h
+string
+-
+iostream
+-
+vector
+-
+algorithm
+-
+tuple
+-
+
+/home/fabrizio-franco/CLionProjects/Proyecto Final/prueba/Tablero.h
+SFML/Graphics.hpp
+-
+
+/home/fabrizio-franco/CLionProjects/Proyecto Final/prueba/config.h
+SFML/Graphics.hpp
+-
+

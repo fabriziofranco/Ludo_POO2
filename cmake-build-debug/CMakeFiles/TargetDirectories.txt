@@ -1,0 +1,3 @@
+/home/fabrizio-franco/CLionProjects/Proyecto Final/prueba/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/fabrizio-franco/CLionProjects/Proyecto Final/prueba/cmake-build-debug/CMakeFiles/SFMLTest.dir
+/home/fabrizio-franco/CLionProjects/Proyecto Final/prueba/cmake-build-debug/CMakeFiles/edit_cache.dir
