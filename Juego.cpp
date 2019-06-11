@@ -7,7 +7,7 @@ Juego::Juego(int numeroJugadores)
     music.openFromFile("sounds/back_music.ogg");
     music.setLoop(true);
     music.play();
-    music.setVolume(0); //Quitar este comentario despues
+    //music.setVolume(0); Descomentar al acabar el juego
     dado=new Dado();
     tablero=new Tablero();
     switch (numeroJugadores){

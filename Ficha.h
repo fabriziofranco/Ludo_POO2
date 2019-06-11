@@ -7,7 +7,7 @@
 class Ficha {
 private:
     int jugadorasignado;
-    std::string estado;
+    std::string estado; //C de casa, N de normal, S de seguro y F es casilla final
     int posicion;
     sf::Sprite sprite_ficha;
     sf::Texture texture_ficha;
