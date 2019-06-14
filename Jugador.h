@@ -18,9 +18,8 @@ private:
     int puntos;
     int movimimientos;
     Recorrido* recorrido_jugador;
-    sf::Vector2<float>* c1;sf::Vector2<float>* c2;
-    sf::Vector2<float>* c3;sf::Vector2<float>* c4;sf::Vector2<float>* salida;
-    Ficha* ficha1;Ficha* ficha2;Ficha* ficha3;Ficha* ficha4;
+    sf::Vector2<float>* c[4];sf::Vector2<float>* salida;
+    Ficha* ficha[4];
 public:
     Jugador(int numeroJugador);
 
@@ -30,23 +29,17 @@ public:
 
     int getNumeroJugador() const;
 
-    sf::Vector2<float> *getC1() const;
-
-    sf::Vector2<float> *getC2() const;
-
-    sf::Vector2<float> *getC3() const;
-
-    sf::Vector2<float> *getC4() const;
+    sf::Vector2<float> *getC(int i) const;
 
     sf::Vector2<float> *getSalida() const;
 
-    Ficha *getFicha1() const;
+    Ficha *getFicha(int i) const;
 
-    Ficha *getFicha2() const;
+    Ficha *getFicha2(int i) const;
 
-    Ficha *getFicha3() const;
+    Ficha *getFicha3(int i) const;
 
-    Ficha *getFicha4() const;
+    Ficha *getFicha4(int i) const;
 
     int getMovimimientos() const;
 

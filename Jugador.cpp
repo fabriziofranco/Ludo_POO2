@@ -4,34 +4,34 @@ Jugador::Jugador(int numeroJugador) : numeroJugador(numeroJugador) {
     movimimientos=0;
     switch (numeroJugador){
         case 1:{
-            c1= new sf::Vector2<float>(613,230);
-            c2= new sf::Vector2<float>(613,305.5);
-            c3= new sf::Vector2<float>(650.75,267.75);
-            c4= new sf::Vector2<float>(575.25,267.75);
+            c[0]= new sf::Vector2<float>(613,230);
+            c[1]= new sf::Vector2<float>(613,305.5);
+            c[2]= new sf::Vector2<float>(650.75,267.75);
+            c[3]= new sf::Vector2<float>(575.25,267.75);
             salida= new sf::Vector2<float>(480,213);
             break;
         }
         case 2:{
-            c1= new sf::Vector2<float>(273.25,230);
-            c2= new sf::Vector2<float>(273.25,305.5);
-            c3= new sf::Vector2<float>(311,267.75);
-            c4= new sf::Vector2<float>(235.5,267.75);
+            c[0]= new sf::Vector2<float>(273.25,230);
+            c[1]= new sf::Vector2<float>(273.25,305.5);
+            c[2]= new sf::Vector2<float>(311,267.75);
+            c[3]= new sf::Vector2<float>(235.5,267.75);
             salida= new sf::Vector2<float>(217,399.75);
             break;
         }
         case 3:{
-            c1= new sf::Vector2<float>(613,569.75);
-            c2= new sf::Vector2<float>(613,645.25);
-            c3= new sf::Vector2<float>(650.75,607.5);
-            c4= new sf::Vector2<float>(575.25,607.5);
+            c[0]= new sf::Vector2<float>(613,569.75);
+            c[1]= new sf::Vector2<float>(613,645.25);
+            c[2]= new sf::Vector2<float>(650.75,607.5);
+            c[3]= new sf::Vector2<float>(575.25,607.5);
             salida= new sf::Vector2<float>(670.25,475.25);
             break;
         }
         case 4:{
-            c1= new sf::Vector2<float>(273.25,569.75);
-            c2= new sf::Vector2<float>(273.25,645.25);
-            c3= new sf::Vector2<float>(311,607.5);
-            c4= new sf::Vector2<float>(235.5,607.5);
+            c[0]= new sf::Vector2<float>(273.25,569.75);
+            c[1]= new sf::Vector2<float>(273.25,645.25);
+            c[2]= new sf::Vector2<float>(311,607.5);
+            c[3]= new sf::Vector2<float>(235.5,607.5);
             salida= new sf::Vector2<float>(406,664);
             break;
         }
@@ -40,7 +40,7 @@ Jugador::Jugador(int numeroJugador) : numeroJugador(numeroJugador) {
     }
     recorrido_jugador=new Recorrido(numeroJugador);
     puntos=0;
-    ficha1=new Ficha(numeroJugador);ficha2=new Ficha(numeroJugador);ficha3=new Ficha(numeroJugador);ficha4=new Ficha(numeroJugador);
+    for(int i = 0; i < 4; i++){ficha[i]=new Ficha(numeroJugador);}
 }
 
 int Jugador::getNumeroJugador() const {
@@ -48,36 +48,29 @@ int Jugador::getNumeroJugador() const {
 }
 
 
-Ficha* Jugador::getFicha1() const {
-    return ficha1;
+Ficha* Jugador::getFicha(int i) const {
+    return ficha[i];
 }
 
-Ficha* Jugador::getFicha2() const {
-    return ficha2;
+Ficha* Jugador::getFicha2(int i) const {
+    if(i==0){
+        return ficha[1];
+    }
+    return ficha[0];
 }
 
-Ficha* Jugador::getFicha3() const {
-    return ficha3;
+Ficha* Jugador::getFicha3(int i) const {
+    if(i <= 1){return ficha[2];}
+    return ficha[1];
 }
 
-Ficha* Jugador::getFicha4() const {
-    return ficha4;
+Ficha* Jugador::getFicha4(int i) const {
+    if(i <= 2){return ficha[3];}
+    return ficha[2];
 }
 
-sf::Vector2<float> *Jugador::getC1() const {
-    return c1;
-}
-
-sf::Vector2<float> *Jugador::getC2() const {
-    return c2;
-}
-
-sf::Vector2<float>* Jugador::getC3() const {
-    return c3;
-}
-
-sf::Vector2<float>* Jugador::getC4() const {
-    return c4;
+sf::Vector2<float> *Jugador::getC(int i) const {
+    return c[i];
 }
 
 int Jugador::getPuntos() const {
@@ -89,8 +82,9 @@ Recorrido *Jugador::getRecorridoJugador() const {
 }
 
 Jugador::~Jugador() {
-    delete c1;delete c2;delete c3;delete c4;
-    delete ficha1; delete ficha2; delete ficha3; delete ficha4;
+    for(int i = 0; i < 4; i++){
+        delete c[i];
+        delete ficha[i];}
 }
 
 void Jugador::setMovimimientos(int movimimientos) {
