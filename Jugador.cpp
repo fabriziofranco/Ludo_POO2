@@ -99,3 +99,7 @@ int Jugador::getMovimimientos() const {
 sf::Vector2<float> *Jugador::getSalida() const {
     return salida;
 }
+
+void Jugador::aumento_puntos(){
+    puntos++;
+}

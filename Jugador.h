@@ -45,6 +45,8 @@ public:
 
     int getPuntos() const;
 
+    void aumento_puntos();
+
     Recorrido *getRecorridoJugador() const;
 
 

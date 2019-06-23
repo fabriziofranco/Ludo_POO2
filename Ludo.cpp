@@ -12,6 +12,10 @@ Ludo::Ludo() {
 
 void Ludo::Run() {
     sf::Font fuente; fuente.loadFromFile("fonts/titulo.ttf"); sf::Text Anuncio("Ludo!", fuente ,160);Anuncio.setOrigin(Anuncio.getLocalBounds().width/2,0); Anuncio.setPosition(WIDTH/2, 100);Anuncio.setColor(sf::Color::White);
+    sf::Text Puntos_1("Rojo :", fuente ,60);Puntos_1.setOrigin(Anuncio.getLocalBounds().width/4,0); Puntos_1.setPosition(WIDTH-500, 250);Puntos_1.setColor(sf::Color::Red);
+    sf::Text Puntos_2("Verde :", fuente ,60);Puntos_2.setOrigin(Anuncio.getLocalBounds().width/4,0); Puntos_2.setPosition(WIDTH-500, 350);Puntos_2.setColor(sf::Color::Green);
+    sf::Text Puntos_3("Azul :", fuente ,60);Puntos_3.setOrigin(Anuncio.getLocalBounds().width/4,0); Puntos_3.setPosition(WIDTH-500, 450);Puntos_3.setColor(sf::Color::Blue);
+    sf::Text Puntos_4("Amarillo :", fuente ,60);Puntos_4.setOrigin(Anuncio.getLocalBounds().width/4,0); Puntos_4.setPosition(WIDTH-500, 550);Puntos_4.setColor(sf::Color::Yellow);
     sf::Text Anuncio2("Turno de jugador\n\t\t rojo!", fuente ,75);Anuncio2.setOrigin(Anuncio.getLocalBounds().width/2,0);Anuncio2.setColor(sf::Color::Red);sf::Text Seleccion("Jugador rojo, presione espacio para \n\t\tlanzar el dado y clickea una ficha", fuente ,40);Seleccion.setOrigin(Anuncio.getLocalBounds().width/2,0);Seleccion.setColor(sf::Color::Red);
     sf::Texture exit_tx;sf::Sprite exit_sp;exit_tx.loadFromFile("img/exit.png");exit_sp.setTexture(exit_tx);exit_sp.setOrigin(exit_sp.getLocalBounds().width/2,0);exit_sp.setPosition(WIDTH-20,0);
     sf::Vector2f targetSize(300.0f,100.0f); sf::Vector2f targetTablero(600.0f,600.0f);
@@ -53,6 +57,20 @@ void Ludo::Run() {
                                             for(;posicion<max;posicion++){
                                                 rojo[i].move(juego->getJugador1()->getRecorridoJugador()->getRecorrido()[posicion+1].first,juego->getJugador1()->getRecorridoJugador()->getRecorrido()[posicion+1].second);}
                                             juego->getJugador1()->getFicha(i)->aumento_de_posicion(movimientos);
+                                            if(juego->getJugador1()->getFicha(i)->getPosicion() >= 55){
+                                                juego->getJugador1()->aumento_puntos();
+                                                int puntos = juego->getJugador1()->getPuntos();
+                                                switch (puntos){
+                                                    case 1:
+                                                        Puntos_1.setString("Rojo : I");break;
+                                                    case 2:
+                                                        Puntos_1.setString("Rojo : II");break;
+                                                    case 3:
+                                                        Puntos_1.setString("Rojo : III");break;
+                                                    case 4:
+                                                        Puntos_1.setString("Rojo : IV");break;
+                                                }
+                                            }
                                             if(movimientos!=6)
                                                 juego->AumentoTurno();break;
                                         }
@@ -86,6 +104,20 @@ void Ludo::Run() {
                                             for(;posicion<max;posicion++){
                                                 verde[i].move(juego->getJugador2()->getRecorridoJugador()->getRecorrido()[posicion+1].first,juego->getJugador2()->getRecorridoJugador()->getRecorrido()[posicion+1].second);}
                                             juego->getJugador2()->getFicha(i)->aumento_de_posicion(movimientos);
+                                            if(juego->getJugador2()->getFicha(i)->getPosicion() >= 55){
+                                                juego->getJugador2()->aumento_puntos();
+                                                int puntos = juego->getJugador2()->getPuntos();
+                                                switch (puntos){
+                                                    case 1:
+                                                        Puntos_2.setString("Verde : I");break;
+                                                    case 2:
+                                                        Puntos_2.setString("Verde : II");break;
+                                                    case 3:
+                                                        Puntos_2.setString("Verde : III");break;
+                                                    case 4:
+                                                        Puntos_2.setString("Verde : IV");break;
+                                                }
+                                            }
                                             if(movimientos!=6)
                                                 juego->AumentoTurno();break;
                                         }
@@ -118,6 +150,20 @@ void Ludo::Run() {
                                             for(;posicion<max;posicion++){
                                                 azul[i].move(juego->getJugador3()->getRecorridoJugador()->getRecorrido()[posicion+1].first,juego->getJugador3()->getRecorridoJugador()->getRecorrido()[posicion+1].second);}
                                             juego->getJugador3()->getFicha(i)->aumento_de_posicion(movimientos);
+                                            if(juego->getJugador3()->getFicha(i)->getPosicion() >= 55){
+                                                juego->getJugador3()->aumento_puntos();
+                                                int puntos = juego->getJugador3()->getPuntos();
+                                                switch (puntos){
+                                                    case 1:
+                                                        Puntos_3.setString("Azul : I");break;
+                                                    case 2:
+                                                        Puntos_3.setString("Azul : II");break;
+                                                    case 3:
+                                                        Puntos_3.setString("Azul : III");break;
+                                                    case 4:
+                                                        Puntos_3.setString("Azul : IV");break;
+                                                }
+                                            }
                                             if(movimientos!=6)
                                                 juego->AumentoTurno();break;
                                         }
@@ -150,6 +196,20 @@ void Ludo::Run() {
                                             for(;posicion<max;posicion++){
                                                 amarillo[i].move(juego->getJugador4()->getRecorridoJugador()->getRecorrido()[posicion+1].first,juego->getJugador4()->getRecorridoJugador()->getRecorrido()[posicion+1].second);}
                                             juego->getJugador4()->getFicha(i)->aumento_de_posicion(movimientos);
+                                            if(juego->getJugador4()->getFicha(i)->getPosicion() >= 55){
+                                                juego->getJugador4()->aumento_puntos();
+                                                int puntos = juego->getJugador4()->getPuntos();
+                                                switch (puntos){
+                                                    case 1:
+                                                        Puntos_4.setString("Amarillo : I");break;
+                                                    case 2:
+                                                        Puntos_4.setString("Amarillo : II");break;
+                                                    case 3:
+                                                        Puntos_4.setString("Amarillo : III");break;
+                                                    case 4:
+                                                        Puntos_4.setString("Amarillo : IV");break;
+                                                }
+                                            }
                                             if(movimientos!=6)
                                                 juego->AumentoTurno();break;
                                         }
@@ -211,7 +271,7 @@ void Ludo::Run() {
         window.draw(Button2);window.draw(Button3);window.draw(Button4);
         if(juego!= nullptr ){
             dado= juego->getDado()->getDadoSprite();dado.setOrigin(dado.getLocalBounds().width/2,dado.getLocalBounds().height/2);dado.setPosition(WIDTH-100,500);window.draw(dado);
-            window.draw(Anuncio2);window.draw(Seleccion);
+            window.draw(Anuncio2);window.draw(Seleccion);window.draw(Puntos_1);window.draw(Puntos_2);window.draw(Puntos_3);window.draw(Puntos_4);
             auto tablero= juego->getTablero()->getTableroSprite(); tablero.setScale(targetTablero.x/tablero.getGlobalBounds().width,targetTablero.y/tablero.getGlobalBounds().height);tablero.setPosition(160, 153);window.draw(tablero);
             for(int i = 0; i<4; i++){window.draw(rojo[i]);}
             for(int i = 0; i<4; i++){window.draw(verde[i]);}
