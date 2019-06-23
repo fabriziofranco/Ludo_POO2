@@ -16,7 +16,7 @@ Jugador::Jugador(int numeroJugador) : numeroJugador(numeroJugador) {
             c[1]= new sf::Vector2<float>(273.25,305.5);
             c[2]= new sf::Vector2<float>(311,267.75);
             c[3]= new sf::Vector2<float>(235.5,267.75);
-            salida= new sf::Vector2<float>(217,399.75);
+            salida= new sf::Vector2<float>(215.75,401.75);
             break;
         }
         case 3:{
@@ -24,7 +24,7 @@ Jugador::Jugador(int numeroJugador) : numeroJugador(numeroJugador) {
             c[1]= new sf::Vector2<float>(613,645.25);
             c[2]= new sf::Vector2<float>(650.75,607.5);
             c[3]= new sf::Vector2<float>(575.25,607.5);
-            salida= new sf::Vector2<float>(670.25,475.25);
+            salida= new sf::Vector2<float>(668.75,477.25);
             break;
         }
         case 4:{
@@ -32,7 +32,7 @@ Jugador::Jugador(int numeroJugador) : numeroJugador(numeroJugador) {
             c[1]= new sf::Vector2<float>(273.25,645.25);
             c[2]= new sf::Vector2<float>(311,607.5);
             c[3]= new sf::Vector2<float>(235.5,607.5);
-            salida= new sf::Vector2<float>(406,664);
+            salida= new sf::Vector2<float>(404.5,666);
             break;
         }
         default:
@@ -42,6 +42,7 @@ Jugador::Jugador(int numeroJugador) : numeroJugador(numeroJugador) {
     puntos=0;
     for(int i = 0; i < 4; i++){ficha[i]=new Ficha(numeroJugador);}
 }
+
 
 int Jugador::getNumeroJugador() const {
     return numeroJugador;

@@ -10,7 +10,7 @@
 #define PROYECTO_POO_II_JUGADOR_H
 
 using namespace std;
-using par = std::pair<float, float >;
+using par = std::pair<float, float>;
 using pares_ordenados = std::vector<par>;
 class Jugador {
 private:
