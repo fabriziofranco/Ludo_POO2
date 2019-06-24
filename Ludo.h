@@ -13,6 +13,7 @@ private:
     sf::RenderWindow *window_puntero;
     sf::Sprite background;
     Juego* juego;
+    bool permiso;
 public:
     Ludo();
     void Run();

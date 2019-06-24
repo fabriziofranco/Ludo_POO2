@@ -7,6 +7,7 @@ Ludo::Ludo() {
     window.create(sf::VideoMode(WIDTH, HEIGHT,BPP), "LUDO!",sf::Style::Fullscreen);window.setVerticalSyncEnabled(true);
     window_puntero=&window;
     texture_back.loadFromFile("img/background.png");background.setTexture(texture_back);
+    permiso = 1;
 }
 
 
@@ -30,9 +31,12 @@ void Ludo::Run() {
         sf::Event evento;
         while (window.pollEvent(evento)){
             if(juego!= nullptr){
-                if(evento.type == sf::Event::KeyPressed && evento.key.code == sf::Keyboard::Key::Space)
-                    juego->Jugar();
-
+                if(evento.type == sf::Event::KeyPressed && evento.key.code == sf::Keyboard::Key::Space){
+                    if(permiso == 1){
+                        juego->Jugar();
+                        permiso = 0;
+                    }
+                }
                 switch (juego->getTurno()){
                     case 1:{
                         for(int i = 0; i < 4; i++){
@@ -42,13 +46,16 @@ void Ludo::Run() {
                                 rojo[i].setPosition(juego->getJugador1()->getC(i)->x,juego->getJugador1()->getC(i)->y);
                             }
                             if(isSpriteClicked(rojo[i],window_puntero)){
-                                int movimientos=juego->getJugador1()->getMovimimientos();juego->getJugador1()->setMovimimientos(0);
+                                int movimientos=juego->getJugador1()->getMovimimientos();
                                 if(juego->getJugador1()->getFicha(i)->getPosicion() >= 55){
-                                    juego->AumentoTurno();break;
+                                    juego->AumentoTurno();
+                                    permiso = 1;
+                                    break;
                                 } else if(juego->getJugador1()->getFicha(i)->getEstado()=="c" && movimientos==6){
                                     rojo[i].setPosition(juego->getJugador1()->getSalida()->x,juego->getJugador1()->getSalida()->y);
                                     juego->getJugador1()->getFicha(i)->setEstado("s");
                                     juego->getJugador1()->getFicha(i)->setPosicion(-1);
+                                    permiso = 1;
                                     break;}
                                 else{
                                     if(juego->getJugador1()->getFicha(i)->getEstado()!="c" && juego->getJugador1()->getFicha(i)->getPosicion()!=-2 ){
@@ -72,12 +79,12 @@ void Ludo::Run() {
                                                 }
                                             }
                                             if(movimientos!=6)
-                                                juego->AumentoTurno();break;
+                                                juego->AumentoTurno();permiso = 1;break;
                                         }
                                         else{
-                                            juego->AumentoTurno();break;
+                                            juego->AumentoTurno();permiso = 1;break;
                                         }}
-                                    juego->AumentoTurno();break;
+                                    juego->AumentoTurno();permiso = 1;break;
                                 }}}
                         break; }
 
@@ -91,11 +98,12 @@ void Ludo::Run() {
                             if(isSpriteClicked(verde[i],window_puntero)){
                                 int movimientos=juego->getJugador2()->getMovimimientos();juego->getJugador2()->setMovimimientos(0);
                                 if(juego->getJugador2()->getFicha(i)->getPosicion() >= 55){
-                                    juego->AumentoTurno();break;
+                                    juego->AumentoTurno();permiso = 1;break;
                                 } else if(juego->getJugador2()->getFicha(i)->getEstado()=="c" && movimientos==6){
                                     verde[i].setPosition(juego->getJugador2()->getSalida()->x,juego->getJugador2()->getSalida()->y);
                                     juego->getJugador2()->getFicha(i)->setEstado("s");
                                     juego->getJugador2()->getFicha(i)->setPosicion(-1);
+                                    permiso = 1;
                                     break;}
                                 else{
                                     if(juego->getJugador2()->getFicha(i)->getEstado()!="c" && juego->getJugador2()->getFicha(i)->getPosicion()!=-2 ){
@@ -119,12 +127,12 @@ void Ludo::Run() {
                                                 }
                                             }
                                             if(movimientos!=6)
-                                                juego->AumentoTurno();break;
+                                                juego->AumentoTurno();permiso = 1;break;
                                         }
                                         else{
-                                            juego->AumentoTurno();break;
+                                            juego->AumentoTurno();permiso = 1;break;
                                         }}
-                                    juego->AumentoTurno();break;
+                                    juego->AumentoTurno();permiso = 1;break;
                                 }}}
                         break; }
                     case 3:{
@@ -137,11 +145,12 @@ void Ludo::Run() {
                             if(isSpriteClicked(azul[i],window_puntero)){
                                 int movimientos=juego->getJugador3()->getMovimimientos();juego->getJugador3()->setMovimimientos(0);
                                 if(juego->getJugador3()->getFicha(i)->getPosicion() >= 55){
-                                    juego->AumentoTurno();break;
+                                    juego->AumentoTurno();permiso = 1;break;
                                 } else if(juego->getJugador3()->getFicha(i)->getEstado()=="c" && movimientos==6){
                                     azul[i].setPosition(juego->getJugador3()->getSalida()->x,juego->getJugador3()->getSalida()->y);
                                     juego->getJugador3()->getFicha(i)->setEstado("s");
                                     juego->getJugador3()->getFicha(i)->setPosicion(-1);
+                                    permiso = 1;
                                     break;}
                                 else{
                                     if(juego->getJugador3()->getFicha(i)->getEstado()!="c" && juego->getJugador3()->getFicha(i)->getPosicion()!=-2 ){
@@ -165,12 +174,12 @@ void Ludo::Run() {
                                                 }
                                             }
                                             if(movimientos!=6)
-                                                juego->AumentoTurno();break;
+                                                juego->AumentoTurno();permiso = 1;break;
                                         }
                                         else{
-                                            juego->AumentoTurno();break;
+                                            juego->AumentoTurno();permiso = 1;break;
                                         }}
-                                    juego->AumentoTurno();break;
+                                    juego->AumentoTurno();permiso = 1;break;
                                 }}}
                         break; }
                     case 4:{
@@ -183,11 +192,12 @@ void Ludo::Run() {
                             if(isSpriteClicked(amarillo[i],window_puntero)){
                                 int movimientos=juego->getJugador4()->getMovimimientos();juego->getJugador4()->setMovimimientos(0);
                                 if(juego->getJugador4()->getFicha(i)->getPosicion() >= 55){
-                                    juego->AumentoTurno();break;
+                                    juego->AumentoTurno();permiso = 1;break;
                                 } else if(juego->getJugador4()->getFicha(i)->getEstado()=="c" && movimientos==6){
                                     amarillo[i].setPosition(juego->getJugador4()->getSalida()->x,juego->getJugador4()->getSalida()->y);
                                     juego->getJugador4()->getFicha(i)->setEstado("s");
                                     juego->getJugador4()->getFicha(i)->setPosicion(-1);
+                                    permiso = 1;
                                     break;}
                                 else{
                                     if(juego->getJugador4()->getFicha(i)->getEstado()!="c" && juego->getJugador4()->getFicha(i)->getPosicion()!=-2 ){
@@ -211,12 +221,12 @@ void Ludo::Run() {
                                                 }
                                             }
                                             if(movimientos!=6)
-                                                juego->AumentoTurno();break;
+                                                juego->AumentoTurno();permiso = 1;break;
                                         }
                                         else{
-                                            juego->AumentoTurno();break;
+                                            juego->AumentoTurno();permiso = 1;break;
                                         }}
-                                    juego->AumentoTurno();break;
+                                    juego->AumentoTurno();permiso = 1;break;
                                 }}}
                         break; }
 
