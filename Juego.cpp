@@ -2,7 +2,8 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 Juego::Juego(int numeroJugadores)
-{   turno=1;
+{
+    turno = 1;
     this->numeroJugadores=numeroJugadores;
     music.openFromFile("sounds/back_music.ogg");
     music.setLoop(true);

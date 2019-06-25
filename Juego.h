@@ -10,6 +10,7 @@
 class Juego {
 private:
     int turno;
+    int next;
     int numeroJugadores;
     sf::Music music;
     Tablero* tablero;

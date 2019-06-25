@@ -40,14 +40,14 @@ void Ludo::Run() {
                 switch (juego->getTurno()){
                     case 1:{
                         for(int i = 0; i < 4; i++){
-                            if(rojo[i].getPosition() == verde[0].getPosition() || rojo[i].getPosition() == verde[1].getPosition() || rojo[i].getPosition() == verde[2].getPosition() || rojo[i].getPosition() == verde[3].getPosition() || rojo[i].getPosition() == azul[0].getPosition() || rojo[i].getPosition() == azul[1].getPosition() || rojo[i].getPosition() == azul[2].getPosition() || rojo[i].getPosition() == azul[3].getPosition() || rojo[i].getPosition() == amarillo[0].getPosition() || rojo[i].getPosition() == amarillo[1].getPosition() || rojo[i].getPosition() == amarillo[2].getPosition() || rojo[i].getPosition() == amarillo[3].getPosition()){
+                            if((rojo[i].getPosition() == verde[0].getPosition() || rojo[i].getPosition() == verde[1].getPosition() || rojo[i].getPosition() == verde[2].getPosition() || rojo[i].getPosition() == verde[3].getPosition() || rojo[i].getPosition() == azul[0].getPosition() || rojo[i].getPosition() == azul[1].getPosition() || rojo[i].getPosition() == azul[2].getPosition() || rojo[i].getPosition() == azul[3].getPosition() || rojo[i].getPosition() == amarillo[0].getPosition() || rojo[i].getPosition() == amarillo[1].getPosition() || rojo[i].getPosition() == amarillo[2].getPosition() || rojo[i].getPosition() == amarillo[3].getPosition()) && juego->getJugador1()->getFicha(i)->getEstado() == "n"){
                                 juego->getJugador1()->getFicha(i)->setEstado("c");
                                 juego->getJugador1()->getFicha(i)->setPosicion(-2);
                                 rojo[i].setPosition(juego->getJugador1()->getC(i)->x,juego->getJugador1()->getC(i)->y);
                             }
                             if(isSpriteClicked(rojo[i],window_puntero)){
-                                int movimientos=juego->getJugador1()->getMovimimientos();
-                                if(juego->getJugador1()->getFicha(i)->getPosicion() >= 55){
+                                int movimientos=juego->getJugador1()->getMovimimientos();juego->getJugador2()->setMovimimientos(0);
+                                if(juego->getJugador1()->getFicha(i)->getEstado() == "f"){
                                     juego->AumentoTurno();
                                     permiso = 1;
                                     break;
@@ -64,7 +64,9 @@ void Ludo::Run() {
                                             for(;posicion<max;posicion++){
                                                 rojo[i].move(juego->getJugador1()->getRecorridoJugador()->getRecorrido()[posicion+1].first,juego->getJugador1()->getRecorridoJugador()->getRecorrido()[posicion+1].second);}
                                             juego->getJugador1()->getFicha(i)->aumento_de_posicion(movimientos);
+                                            juego->getJugador1()->getFicha(i)->setEstado("n");
                                             if(juego->getJugador1()->getFicha(i)->getPosicion() >= 55){
+                                                juego->getJugador1()->getFicha(i)->setEstado("f");
                                                 juego->getJugador1()->aumento_puntos();
                                                 int puntos = juego->getJugador1()->getPuntos();
                                                 switch (puntos){
@@ -90,14 +92,14 @@ void Ludo::Run() {
 
                     case 2:{
                         for(int i = 0; i < 4; i++){
-                            if(verde[i].getPosition() == rojo[0].getPosition() || verde[i].getPosition() == rojo[1].getPosition() || verde[i].getPosition() == rojo[2].getPosition() || verde[i].getPosition() == rojo[3].getPosition() || verde[i].getPosition() == azul[0].getPosition() || verde[i].getPosition() == azul[1].getPosition() || verde[i].getPosition() == azul[2].getPosition() || verde[i].getPosition() == azul[3].getPosition() || verde[i].getPosition() == amarillo[0].getPosition() || verde[i].getPosition() == amarillo[1].getPosition() || verde[i].getPosition() == amarillo[2].getPosition() || verde[i].getPosition() == amarillo[3].getPosition()){
+                            if((verde[i].getPosition() == rojo[0].getPosition() || verde[i].getPosition() == rojo[1].getPosition() || verde[i].getPosition() == rojo[2].getPosition() || verde[i].getPosition() == rojo[3].getPosition() || verde[i].getPosition() == azul[0].getPosition() || verde[i].getPosition() == azul[1].getPosition() || verde[i].getPosition() == azul[2].getPosition() || verde[i].getPosition() == azul[3].getPosition() || verde[i].getPosition() == amarillo[0].getPosition() || verde[i].getPosition() == amarillo[1].getPosition() || verde[i].getPosition() == amarillo[2].getPosition() || verde[i].getPosition() == amarillo[3].getPosition()) && juego->getJugador1()->getFicha(i)->getEstado() == "n"){
                                 juego->getJugador2()->getFicha(i)->setEstado("c");
                                 juego->getJugador2()->getFicha(i)->setPosicion(-2);
                                 verde[i].setPosition(juego->getJugador2()->getC(i)->x,juego->getJugador2()->getC(i)->y);
                             }
                             if(isSpriteClicked(verde[i],window_puntero)){
                                 int movimientos=juego->getJugador2()->getMovimimientos();juego->getJugador2()->setMovimimientos(0);
-                                if(juego->getJugador2()->getFicha(i)->getPosicion() >= 55){
+                                if(juego->getJugador1()->getFicha(i)->getEstado() == "f"){
                                     juego->AumentoTurno();permiso = 1;break;
                                 } else if(juego->getJugador2()->getFicha(i)->getEstado()=="c" && movimientos==6){
                                     verde[i].setPosition(juego->getJugador2()->getSalida()->x,juego->getJugador2()->getSalida()->y);
@@ -113,6 +115,7 @@ void Ludo::Run() {
                                                 verde[i].move(juego->getJugador2()->getRecorridoJugador()->getRecorrido()[posicion+1].first,juego->getJugador2()->getRecorridoJugador()->getRecorrido()[posicion+1].second);}
                                             juego->getJugador2()->getFicha(i)->aumento_de_posicion(movimientos);
                                             if(juego->getJugador2()->getFicha(i)->getPosicion() >= 55){
+                                                juego->getJugador1()->getFicha(i)->setEstado("f");
                                                 juego->getJugador2()->aumento_puntos();
                                                 int puntos = juego->getJugador2()->getPuntos();
                                                 switch (puntos){
@@ -137,14 +140,14 @@ void Ludo::Run() {
                         break; }
                     case 3:{
                         for(int i = 0; i < 4; i++){
-                            if(azul[i].getPosition() == rojo[0].getPosition() || azul[i].getPosition() == rojo[1].getPosition() || azul[i].getPosition() == rojo[2].getPosition() || azul[i].getPosition() == rojo[3].getPosition() || azul[i].getPosition() == verde[0].getPosition() || azul[i].getPosition() == verde[1].getPosition() || azul[i].getPosition() == verde[2].getPosition() || azul[i].getPosition() == verde[3].getPosition() || azul[i].getPosition() == amarillo[0].getPosition() || azul[i].getPosition() == amarillo[1].getPosition() || azul[i].getPosition() == amarillo[2].getPosition() || azul[i].getPosition() == amarillo[3].getPosition()){
+                            if((azul[i].getPosition() == rojo[0].getPosition() || azul[i].getPosition() == rojo[1].getPosition() || azul[i].getPosition() == rojo[2].getPosition() || azul[i].getPosition() == rojo[3].getPosition() || azul[i].getPosition() == verde[0].getPosition() || azul[i].getPosition() == verde[1].getPosition() || azul[i].getPosition() == verde[2].getPosition() || azul[i].getPosition() == verde[3].getPosition() || azul[i].getPosition() == amarillo[0].getPosition() || azul[i].getPosition() == amarillo[1].getPosition() || azul[i].getPosition() == amarillo[2].getPosition() || azul[i].getPosition() == amarillo[3].getPosition()) && juego->getJugador1()->getFicha(i)->getEstado() == "n"){
                                 juego->getJugador3()->getFicha(i)->setEstado("c");
                                 juego->getJugador3()->getFicha(i)->setPosicion(-2);
                                 azul[i].setPosition(juego->getJugador3()->getC(i)->x,juego->getJugador3()->getC(i)->y);
                             }
                             if(isSpriteClicked(azul[i],window_puntero)){
                                 int movimientos=juego->getJugador3()->getMovimimientos();juego->getJugador3()->setMovimimientos(0);
-                                if(juego->getJugador3()->getFicha(i)->getPosicion() >= 55){
+                                if(juego->getJugador1()->getFicha(i)->getEstado() == "f"){
                                     juego->AumentoTurno();permiso = 1;break;
                                 } else if(juego->getJugador3()->getFicha(i)->getEstado()=="c" && movimientos==6){
                                     azul[i].setPosition(juego->getJugador3()->getSalida()->x,juego->getJugador3()->getSalida()->y);
@@ -160,6 +163,7 @@ void Ludo::Run() {
                                                 azul[i].move(juego->getJugador3()->getRecorridoJugador()->getRecorrido()[posicion+1].first,juego->getJugador3()->getRecorridoJugador()->getRecorrido()[posicion+1].second);}
                                             juego->getJugador3()->getFicha(i)->aumento_de_posicion(movimientos);
                                             if(juego->getJugador3()->getFicha(i)->getPosicion() >= 55){
+                                                juego->getJugador1()->getFicha(i)->setEstado("f");
                                                 juego->getJugador3()->aumento_puntos();
                                                 int puntos = juego->getJugador3()->getPuntos();
                                                 switch (puntos){
@@ -184,14 +188,14 @@ void Ludo::Run() {
                         break; }
                     case 4:{
                         for(int i = 0; i < 4; i++){
-                            if(amarillo[i].getPosition() == rojo[0].getPosition() || amarillo[i].getPosition() == rojo[1].getPosition() || amarillo[i].getPosition() == rojo[2].getPosition() || amarillo[i].getPosition() == rojo[3].getPosition() || amarillo[i].getPosition() == verde[0].getPosition() || amarillo[i].getPosition() == verde[1].getPosition() || amarillo[i].getPosition() == verde[2].getPosition() || amarillo[i].getPosition() == verde[3].getPosition() || amarillo[i].getPosition() == azul[0].getPosition() || amarillo[i].getPosition() == azul[1].getPosition() || amarillo[i].getPosition() == azul[2].getPosition() || amarillo[i].getPosition() == azul[3].getPosition()){
+                            if((amarillo[i].getPosition() == rojo[0].getPosition() || amarillo[i].getPosition() == rojo[1].getPosition() || amarillo[i].getPosition() == rojo[2].getPosition() || amarillo[i].getPosition() == rojo[3].getPosition() || amarillo[i].getPosition() == verde[0].getPosition() || amarillo[i].getPosition() == verde[1].getPosition() || amarillo[i].getPosition() == verde[2].getPosition() || amarillo[i].getPosition() == verde[3].getPosition() || amarillo[i].getPosition() == azul[0].getPosition() || amarillo[i].getPosition() == azul[1].getPosition() || amarillo[i].getPosition() == azul[2].getPosition() || amarillo[i].getPosition() == azul[3].getPosition()) && juego->getJugador1()->getFicha(i)->getEstado() == "n"){
                                 juego->getJugador4()->getFicha(i)->setEstado("c");
                                 juego->getJugador4()->getFicha(i)->setPosicion(-2);
                                 amarillo[i].setPosition(juego->getJugador4()->getC(i)->x,juego->getJugador4()->getC(i)->y);
                             }
                             if(isSpriteClicked(amarillo[i],window_puntero)){
                                 int movimientos=juego->getJugador4()->getMovimimientos();juego->getJugador4()->setMovimimientos(0);
-                                if(juego->getJugador4()->getFicha(i)->getPosicion() >= 55){
+                                if(juego->getJugador1()->getFicha(i)->getEstado() == "f"){
                                     juego->AumentoTurno();permiso = 1;break;
                                 } else if(juego->getJugador4()->getFicha(i)->getEstado()=="c" && movimientos==6){
                                     amarillo[i].setPosition(juego->getJugador4()->getSalida()->x,juego->getJugador4()->getSalida()->y);
@@ -207,6 +211,7 @@ void Ludo::Run() {
                                                 amarillo[i].move(juego->getJugador4()->getRecorridoJugador()->getRecorrido()[posicion+1].first,juego->getJugador4()->getRecorridoJugador()->getRecorrido()[posicion+1].second);}
                                             juego->getJugador4()->getFicha(i)->aumento_de_posicion(movimientos);
                                             if(juego->getJugador4()->getFicha(i)->getPosicion() >= 55){
+                                                juego->getJugador1()->getFicha(i)->setEstado("f");
                                                 juego->getJugador4()->aumento_puntos();
                                                 int puntos = juego->getJugador4()->getPuntos();
                                                 switch (puntos){
