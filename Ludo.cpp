@@ -45,7 +45,7 @@ void Ludo::Run() {
                                 int movimientos=juego->getJugador1()->getMovimimientos();juego->getJugador1()->setMovimimientos(0);
                                 if(juego->getJugador1()->getFicha(i)->getEstado() == "f"){
                                     juego->AumentoTurno();
-                                    permiso = 1;
+                                    permiso = 0;
                                     break;
                                 } else if(juego->getJugador1()->getFicha(i)->getEstado()=="c" && movimientos==6){
                                     rojo[i].setPosition(juego->getJugador1()->getSalida()->x,juego->getJugador1()->getSalida()->y);
