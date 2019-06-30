@@ -5,7 +5,7 @@
 - Pantalla con la resolución de pantalla en 1366x768
     
 ##Instrucciones de uso:
-En cada turno el jugador correspondiente debe lanzar el dado presionando la barra espaciadora, seguidamente debe hacer click sobre la pieza que desea mover, incluso si la ficha no es capaz de moverse.
+- En cada turno el jugador correspondiente debe lanzar el dado presionando la barra espaciadora, seguidamente debe hacer click sobre la pieza que desea mover, incluso si la ficha no es capaz de moverse.
 
 ##Reglas del juego:
 - En caso el jugador obtenga un 6, recibirá una turno extra.
