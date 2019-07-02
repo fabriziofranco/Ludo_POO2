@@ -14,5 +14,5 @@
 ### Integrantes:
 - Fabrizio Franco (201710466)
 - Mateo Noel (201810456)
-- Victor Ascuña (2018---)
+- Victor Ascuña (201810482)
     
