@@ -49,9 +49,6 @@ void Ficha::setEstado(const std::string &estado) {
 void Ficha::setPosicion(int posicion) {
     Ficha::posicion = posicion;
 }
-void Ficha::aumento_de_posicion(int aumento){
-    posicion+=aumento;
-}
 
 int Ficha::getPosicion() const {
     return posicion;

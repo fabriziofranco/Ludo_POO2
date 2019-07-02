@@ -21,7 +21,6 @@ public:
 
     void setEstado(const std::string &estado);
 
-    void aumento_de_posicion(int aumento);
     void setPosicion(int posicion);
 };
 
