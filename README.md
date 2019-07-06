@@ -16,6 +16,7 @@
 - Un jugador puede enviar al punto de partida a las fichas de un contrincante, si en su turno ocupa la casilla de este último.
 - Ningún jugador puede tener más de una ficha en cada casilla, si en un turno se saca un número que da como destino una casilla con una ficha propia, no se puede mover y se pierde el turno.
 - Cuando una ficha llega a la vertical de color está seguro, es decir ningún contrincante puede capturarla. Sin embargo, debe llegar a la casa o meta con la cuenta exacta, de lo contrario tiene que moverse dentro de la vertical de color según lo indicado por el dado.
+-Un jugador gana cuando llega a 4 puntos.
     
 ### Integrantes:
 - Fabrizio Franco (201710466) ....35%
