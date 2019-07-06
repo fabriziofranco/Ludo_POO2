@@ -124,7 +124,7 @@ void Ludo::Run() {
                             if(isSpriteClicked(verde[i],window_puntero)){
                                 int movimientos=juego->getJugador2()->getMovimimientos();juego->getJugador2()->setMovimimientos(0);
                                 if(movimientos == 6){bloqueo_3_6++;}else{bloqueo_3_6 = 0;}
-                                if(juego->getJugador1()->getFicha(i)->getEstado() == "f"){
+                                if(juego->getJugador2()->getFicha(i)->getEstado() == "f"){
                                     juego->AumentoTurno();permiso = 1;break;
                                 } else if(juego->getJugador2()->getFicha(i)->getEstado()=="c" && movimientos==6){
                                     verde[i].setPosition(juego->getJugador2()->getSalida()->x,juego->getJugador2()->getSalida()->y);
@@ -200,7 +200,7 @@ void Ludo::Run() {
                             if(isSpriteClicked(azul[i],window_puntero)){
                                 int movimientos=juego->getJugador3()->getMovimimientos();juego->getJugador3()->setMovimimientos(0);
                                 if(movimientos == 6){bloqueo_3_6++;}else{bloqueo_3_6 = 0;}
-                                if(juego->getJugador1()->getFicha(i)->getEstado() == "f"){
+                                if(juego->getJugador3()->getFicha(i)->getEstado() == "f"){
                                     juego->AumentoTurno();permiso = 1;break;
                                 } else if(juego->getJugador3()->getFicha(i)->getEstado()=="c" && movimientos==6){
                                     azul[i].setPosition(juego->getJugador3()->getSalida()->x,juego->getJugador3()->getSalida()->y);
@@ -274,7 +274,7 @@ void Ludo::Run() {
                             if(isSpriteClicked(amarillo[i],window_puntero)){
                                 int movimientos=juego->getJugador4()->getMovimimientos();juego->getJugador4()->setMovimimientos(0);
                                 if(movimientos == 6){bloqueo_3_6++;}else{bloqueo_3_6 = 0;}
-                                if(juego->getJugador1()->getFicha(i)->getEstado() == "f"){
+                                if(juego->getJugador4()->getFicha(i)->getEstado() == "f"){
                                     juego->AumentoTurno();permiso = 1;break;
                                 } else if(juego->getJugador4()->getFicha(i)->getEstado()=="c" && movimientos==6){
                                     amarillo[i].setPosition(juego->getJugador4()->getSalida()->x,juego->getJugador4()->getSalida()->y);
