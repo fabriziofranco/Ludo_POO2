@@ -345,6 +345,39 @@ void Ludo::Run() {
                         break; }
 
                 }
+                                switch (juego->getNumeroJugadores()){
+                    case 2:
+                        if(juego->getJugador1()->getPuntos()==4)
+                            Anuncio.setString("Gana rojo!");
+                        else if(juego->getJugador2()->getPuntos()==4){
+                            Anuncio.setString("Gana verde!");
+                        }
+                        break;
+                    case 3:
+                        if(juego->getJugador1()->getPuntos()==4)
+                            Anuncio.setString("Gana rojo!");
+                        else if(juego->getJugador2()->getPuntos()==4){
+                            Anuncio.setString("Gana verde!");
+                        }
+                        else if(juego->getJugador3()->getPuntos()==4){
+                            Anuncio.setString("Gana azul!");
+                        }
+                        break;
+                    case 4:
+                        if(juego->getJugador1()->getPuntos()==4)
+                            Anuncio.setString("Gana rojo!");
+                        else if(juego->getJugador2()->getPuntos()==4){
+                            Anuncio.setString("Gana verde!");
+                        }
+                        else if(juego->getJugador3()->getPuntos()==4){
+                            Anuncio.setString("Gana azul!");
+                        }
+                        else if(juego->getJugador4()->getPuntos()==4){
+                            Anuncio.setString("Gana amarillo!");
+                        }
+                        break;
+
+                }
                 switch (juego->getTurno()){
                     case 1:{
                         Anuncio2.setColor(sf::Color::Red); Seleccion.setColor(sf::Color::Red);
