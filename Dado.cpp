@@ -5,7 +5,7 @@
 
 int Dado::Lanzar(){
     srand(time(nullptr));
-    int x= 1 + rand()%6;
+    int x = 1 + rand()%6;
     switch (x) {
         case 1:{
             dado_textura.loadFromFile("img/1.png");
