@@ -14,6 +14,7 @@ private:
     sf::Sprite background;
     Juego* juego;
     bool permiso;
+    int bloqueo_3_6;
 public:
     Ludo();
     void Run();
