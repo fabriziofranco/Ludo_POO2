@@ -18,7 +18,7 @@
 - Cuando una ficha llega a la vertical de color está seguro, es decir ningún contrincante puede capturarla. Sin embargo, debe llegar a la casa o meta con la cuenta exacta, de lo contrario tiene que moverse dentro de la vertical de color según lo indicado por el dado.
     
 ### Integrantes:
-- Fabrizio Franco (201710466)
-- Mateo Noel (201810456)
-- Victor Ascuña (201810482)
+- Fabrizio Franco (201710466) ....35%
+- Mateo Noel (201810456)..........30%
+- Victor Ascuña (201810482).......35%
     
