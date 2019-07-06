@@ -8,6 +8,7 @@ Ludo::Ludo() {
     window_puntero=&window;window.setFramerateLimit(60);
     texture_back.loadFromFile("img/background.png");background.setTexture(texture_back);
     permiso = 1;
+    bloqueo_3_6 = 0;
 }
 
 
@@ -33,7 +34,7 @@ void Ludo::Run() {
         while (window.pollEvent(evento)){
             if(juego!= nullptr){
                 if(evento.type == sf::Event::KeyPressed && evento.key.code == sf::Keyboard::Key::Space){
-                    if(permiso == 1){
+                    if(permiso == 1 && bloqueo_3_6 < 3){
                         juego->Jugar();
                         permiso = 0;
                     }
@@ -43,6 +44,7 @@ void Ludo::Run() {
                         for(int i = 0; i < 4; i++){
                             if(isSpriteClicked(rojo[i],window_puntero)){
                                 int movimientos=juego->getJugador1()->getMovimimientos();juego->getJugador1()->setMovimimientos(0);
+                                if(movimientos == 6){bloqueo_3_6++;}else{bloqueo_3_6 = 0;}
                                 if(juego->getJugador1()->getFicha(i)->getEstado() == "f"){
                                     juego->AumentoTurno();
                                     permiso = 1;
@@ -121,6 +123,7 @@ void Ludo::Run() {
                         for(int i = 0; i < 4; i++){
                             if(isSpriteClicked(verde[i],window_puntero)){
                                 int movimientos=juego->getJugador2()->getMovimimientos();juego->getJugador2()->setMovimimientos(0);
+                                if(movimientos == 6){bloqueo_3_6++;}else{bloqueo_3_6 = 0;}
                                 if(juego->getJugador1()->getFicha(i)->getEstado() == "f"){
                                     juego->AumentoTurno();permiso = 1;break;
                                 } else if(juego->getJugador2()->getFicha(i)->getEstado()=="c" && movimientos==6){
@@ -196,6 +199,7 @@ void Ludo::Run() {
                         for(int i = 0; i < 4; i++){
                             if(isSpriteClicked(azul[i],window_puntero)){
                                 int movimientos=juego->getJugador3()->getMovimimientos();juego->getJugador3()->setMovimimientos(0);
+                                if(movimientos == 6){bloqueo_3_6++;}else{bloqueo_3_6 = 0;}
                                 if(juego->getJugador1()->getFicha(i)->getEstado() == "f"){
                                     juego->AumentoTurno();permiso = 1;break;
                                 } else if(juego->getJugador3()->getFicha(i)->getEstado()=="c" && movimientos==6){
@@ -269,6 +273,7 @@ void Ludo::Run() {
                         for(int i = 0; i < 4; i++){
                             if(isSpriteClicked(amarillo[i],window_puntero)){
                                 int movimientos=juego->getJugador4()->getMovimimientos();juego->getJugador4()->setMovimimientos(0);
+                                if(movimientos == 6){bloqueo_3_6++;}else{bloqueo_3_6 = 0;}
                                 if(juego->getJugador1()->getFicha(i)->getEstado() == "f"){
                                     juego->AumentoTurno();permiso = 1;break;
                                 } else if(juego->getJugador4()->getFicha(i)->getEstado()=="c" && movimientos==6){
