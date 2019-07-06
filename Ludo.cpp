@@ -35,7 +35,7 @@ void Ludo::Run() {
                 if(evento.type == sf::Event::KeyPressed && evento.key.code == sf::Keyboard::Key::Space){
                     if(permiso == 1){
                         juego->Jugar();
-                        permiso = 1;
+                        permiso = 0;
                     }
                 }
                 switch (juego->getTurno()){
