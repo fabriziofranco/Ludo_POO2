@@ -58,7 +58,7 @@ void Ludo::Run() {
                                 else{
                                     if(juego->getJugador1()->getFicha(i)->getEstado()!="c" && juego->getJugador1()->getFicha(i)->getPosicion()!=-2 ){
                                         int posicion=juego->getJugador1()->getFicha(i)->getPosicion(),max=posicion+movimientos,retroceso=max-55;
-                                        if (max!=juego->getJugador1()->getFicha2(i)->getPosicion() && max!=juego->getJugador1()->getFicha3(i)->getPosicion()&& max!=juego->getJugador1()->getFicha4(i)->getPosicion() && juego->getJugador1()->getFicha2(i)->getEstado() != "f" && juego->getJugador1()->getFicha3(i)->getEstado() != "f" && juego->getJugador1()->getFicha4(i)->getEstado() != "f"){
+                                        if ((max!=juego->getJugador1()->getFicha2(i)->getPosicion() && max!=juego->getJugador1()->getFicha3(i)->getPosicion()&& max!=juego->getJugador1()->getFicha4(i)->getPosicion()) || max == 55){
                                             if(max > 55){max = 55-retroceso;}
                                             if(max > posicion){
                                                 for(;posicion<max;posicion++){
@@ -135,7 +135,7 @@ void Ludo::Run() {
                                 else{
                                     if(juego->getJugador2()->getFicha(i)->getEstado()!="c" && juego->getJugador2()->getFicha(i)->getPosicion()!=-2 ){
                                         int posicion=juego->getJugador2()->getFicha(i)->getPosicion(),max=posicion+movimientos,retroceso=max-55;
-                                        if (max!=juego->getJugador2()->getFicha2(i)->getPosicion() && max!=juego->getJugador2()->getFicha3(i)->getPosicion()&& max!=juego->getJugador2()->getFicha4(i)->getPosicion() && juego->getJugador2()->getFicha2(i)->getEstado() != "f" && juego->getJugador2()->getFicha3(i)->getEstado() != "f" && juego->getJugador2()->getFicha4(i)->getEstado() != "f"){
+                                        if ((max!=juego->getJugador2()->getFicha2(i)->getPosicion() && max!=juego->getJugador2()->getFicha3(i)->getPosicion()&& max!=juego->getJugador2()->getFicha4(i)->getPosicion()) || max == 55){
                                             if(max > 55){max = 55-retroceso;}
                                             if(max > posicion){
                                                 for(;posicion<max;posicion++){
@@ -211,7 +211,7 @@ void Ludo::Run() {
                                 else{
                                     if(juego->getJugador3()->getFicha(i)->getEstado()!="c" && juego->getJugador3()->getFicha(i)->getPosicion()!=-2 ){
                                         int posicion=juego->getJugador3()->getFicha(i)->getPosicion(),max=posicion+movimientos,retroceso=max-55;
-                                        if (max!=juego->getJugador3()->getFicha2(i)->getPosicion() && max!=juego->getJugador3()->getFicha3(i)->getPosicion()&& max!=juego->getJugador3()->getFicha4(i)->getPosicion() && juego->getJugador3()->getFicha2(i)->getEstado() != "f" && juego->getJugador3()->getFicha3(i)->getEstado() != "f" && juego->getJugador3()->getFicha4(i)->getEstado() != "f"){
+                                        if ((max!=juego->getJugador3()->getFicha2(i)->getPosicion() && max!=juego->getJugador3()->getFicha3(i)->getPosicion()&& max!=juego->getJugador3()->getFicha4(i)->getPosicion()) || max == 55){
                                             if(max > 55){max = 55-retroceso;}
                                             if(max > posicion){
                                                 for(;posicion<max;posicion++){
@@ -285,7 +285,7 @@ void Ludo::Run() {
                                 else{
                                     if(juego->getJugador4()->getFicha(i)->getEstado()!="c" && juego->getJugador4()->getFicha(i)->getPosicion()!=-2 ){
                                         int posicion=juego->getJugador4()->getFicha(i)->getPosicion(),max=posicion+movimientos,retroceso=max-55;
-                                        if (max!=juego->getJugador4()->getFicha2(i)->getPosicion() && max!=juego->getJugador4()->getFicha3(i)->getPosicion()&& max!=juego->getJugador4()->getFicha4(i)->getPosicion() && juego->getJugador4()->getFicha2(i)->getEstado() != "f" && juego->getJugador4()->getFicha3(i)->getEstado() != "f" && juego->getJugador4()->getFicha4(i)->getEstado() != "f"){
+                                        if ((max!=juego->getJugador4()->getFicha2(i)->getPosicion() && max!=juego->getJugador4()->getFicha3(i)->getPosicion()&& max!=juego->getJugador4()->getFicha4(i)->getPosicion()) || max == 55){
                                             if(max > 55){max = 55-retroceso;}
                                             if(max > posicion){
                                                 for(;posicion<max;posicion++){
